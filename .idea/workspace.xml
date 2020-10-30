@@ -22,13 +22,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1772f77c-aa0e-424a-a813-058f289197bd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/matrix.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/matrix.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shader.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/shader.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/window.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/window.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,6 +74,11 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="RustProjectSettings">
     <option name="toolchainHomeDirectory" value="$USER_HOME$/.cargo/bin" />
@@ -103,7 +102,7 @@
       <workItem from="1603860401568" duration="6044000" />
       <workItem from="1604034651462" duration="4113000" />
       <workItem from="1604077352344" duration="2644000" />
-      <workItem from="1604081151874" duration="1095000" />
+      <workItem from="1604081151874" duration="1197000" />
     </task>
     <servers />
   </component>
