@@ -2,7 +2,6 @@ mod shader;
 mod buffer;
 mod vertex_array;
 mod window;
-mod matrix;
 mod vector;
 mod texture_2d;
 
@@ -11,9 +10,10 @@ use shader::Shader;
 use buffer::Buffer;
 use vertex_array::VertexArray;
 use window::Window;
-use matrix::Mat4;
 use vector::Vec3;
 use texture_2d::Texture2D;
+use cgmath::{ Matrix4, Ortho };
+use cgmath::prelude::*;
 
 extern crate sdl2;
 extern crate gl;
@@ -68,17 +68,11 @@ fn main() {
     let program = Shader::create(V_SHADER_SOURCE, F_SHADER_SOURCE);
 
     // VBO
-    /*let vertices: [f32; 32] = [
+    let vertices: [f32; 32] = [
         440.0, 180.0, 0.0,    1.0, 1.0, 1.0,    1.0, 1.0, // TL
         840.0, 180.0, 0.0,    1.0, 1.0, 1.0,    1.0, 0.0, // TR
         440.0, 540.0, 0.0,    1.0, 1.0, 1.0,    0.0, 0.0, // BL
         840.0, 540.0, 0.0,    1.0, 1.0, 1.0,    0.0, 1.0, // BR
-    ];*/
-    let vertices: [f32; 32] = [
-        -0.5,  0.5, 0.0,    1.0, 1.0, 1.0,    1.0, 1.0, // TL
-         0.5,  0.5, 0.0,    1.0, 1.0, 1.0,    1.0, 0.0, // TR
-        -0.5, -0.5, 0.0,    1.0, 1.0, 1.0,    0.0, 0.0, // BL
-         0.5, -0.5, 0.0,    1.0, 1.0, 1.0,    0.0, 1.0, // BR
     ];
     let indices: [u32; 6] = [
         0, 2, 1,
@@ -112,21 +106,20 @@ fn main() {
     };
 
     // Transforms
-    let model = Mat4::identity();
-    let view = Mat4::identity();
-    // let proj = Mat4::orthographic_off_center(0.0, window.width as f32, window.height as f32, 0.0, -1.0, 1.0);
-    let proj = Mat4::translate(-0.5, 0.0, 0.0);
+    let model: Matrix4<f32> = Matrix4::identity();
+    let view: Matrix4<f32> = Matrix4::identity();
+    let proj: Matrix4<f32> = cgmath::ortho(0.0, window.width as f32, window.height as f32, 0.0, -1.0, 1.0);
 
     program.bind();
     unsafe {
         let model_loc = gl::GetUniformLocation(program.program_id, CString::new("model").expect("C-String Error").as_ptr());
-        gl::UniformMatrix4fv(model_loc, 1, gl::FALSE, &model.a[0] as *const f32);
+        gl::UniformMatrix4fv(model_loc, 1, gl::FALSE, model.as_ptr());
 
         let view_loc = gl::GetUniformLocation(program.program_id, CString::new("view").expect("C-String Error").as_ptr());
-        gl::UniformMatrix4fv(view_loc, 1, gl::FALSE, &view.a[0] as *const f32);
+        gl::UniformMatrix4fv(view_loc, 1, gl::FALSE, view.as_ptr());
 
         let proj_loc = gl::GetUniformLocation(program.program_id, CString::new("proj").expect("C-String Error").as_ptr());
-        gl::UniformMatrix4fv(proj_loc, 1, gl::FALSE, &proj.a[0] as *const f32);
+        gl::UniformMatrix4fv(proj_loc, 1, gl::FALSE, proj.as_ptr());
     }
 
 
