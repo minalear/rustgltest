@@ -1,16 +1,18 @@
 mod shader;
-mod vertex_buffer;
+mod buffer;
 mod vertex_array;
 mod window;
 mod matrix;
 mod vector;
+mod texture_2d;
 
 use shader::Shader;
-use vertex_buffer::VertexBuffer;
+use buffer::Buffer;
 use vertex_array::VertexArray;
 use window::Window;
 use matrix::Mat4;
 use vector::Vec3;
+use texture_2d::Texture2D;
 
 extern crate sdl2;
 extern crate gl;
@@ -22,11 +24,14 @@ const V_SHADER_SOURCE: &str = r#"
     #version 400 core
     layout (location = 0) in vec3 aPos;
     layout (location = 1) in vec3 aCol;
+    layout (location = 2) in vec2 aUV;
 
     out vec3 vColor;
+    out vec2 vUV;
 
     void main() {
         vColor = aCol;
+        vUV = aUV;
         gl_Position = vec4(aPos, 1.0);
     }
 "#;
@@ -36,42 +41,58 @@ const F_SHADER_SOURCE: &str = r#"
     out vec4 FragColor;
 
     in vec3 vColor;
+    in vec2 vUV;
+
+    uniform sampler2D img;
 
     void main() {
-        FragColor = vec4(vColor, 1.0f);
+        FragColor = texture(img, vUV) * vec4(vColor, 1.0f);
     }
 "#;
 
 fn main() {
-    let mat = Mat4::translate(-3.0, -7.0, 0.0) * Mat4::scale_uniform(2.0);
-    let pos = Vec3::new(3.0, 7.0, 0.0);
-
-    println!("mat: {:?}", mat);
-    println!("mat * pos = {:?}", mat * pos);
-
-    /*let window = Window::create("New Window", 1280, 720).unwrap();
+    let window = Window::create("New Window", 1280, 720).unwrap();
     let program = Shader::create(V_SHADER_SOURCE, F_SHADER_SOURCE);
 
     // VBO
-    let vertices: [f32; 18] = [
-        -0.5, -0.5, 0.0,    1.0, 0.0, 1.0,
-        0.5, -0.5, 0.0,     1.0, 1.0, 0.0,
-        0.0, 0.5, 0.0,      0.0, 1.0, 1.0
+    let vertices: [f32; 32] = [
+         0.5,  0.5, 0.0,    1.0, 1.0, 1.0,    1.0, 1.0,
+         0.5, -0.5, 0.0,    1.0, 1.0, 1.0,    1.0, 0.0,
+        -0.5, -0.5, 0.0,    1.0, 1.0, 1.0,    0.0, 0.0,
+        -0.5,  0.5, 0.0,    1.0, 1.0, 1.0,    0.0, 1.0,
+    ];
+    let indices: [u32; 6] = [
+        0, 1, 3,
+        1, 2, 3
     ];
 
-    let buffer = VertexBuffer::create(&vertices, vertices.len());
     let vao = VertexArray::create();
-
     vao.bind();
-    buffer.bind();
 
-    vao.vertex_attrib_pointer(0, 3, 6, 0);
-    vao.vertex_attrib_pointer(1, 3, 6, 3);
+    let vbo = Buffer::create(&vertices, vertices.len(), buffer::BufferType::Vertex);
+    let ebo = Buffer::create(&indices, indices.len(), buffer::BufferType::Index);
+
+    vbo.bind();
+    ebo.bind();
+
+    vao.vertex_attrib_pointer(0, 3, 8, 0); // pos
+    vao.vertex_attrib_pointer(1, 3, 8, 3); // color
+    vao.vertex_attrib_pointer(2, 2, 8, 6); // uv
     vao.enable_attribute(0);
     vao.enable_attribute(1);
+    vao.enable_attribute(2);
 
-    VertexBuffer::clear_bind();
+    Buffer::clear_bind(buffer::BufferType::Vertex);
+    //Buffer::clear_bind(buffer::BufferType::Index);
     VertexArray::clear_bind();
+
+    // Texture
+    let image = match Texture2D::from_file("./target/debug/content/Carl.png") {
+        Ok(texture) => texture,
+        Err(error) => panic!("{}", error)
+    };
+
+    println!("image: {}x{}", image.width, image.height);
 
     let mut event_pump = window.sdl_context.event_pump().unwrap();
 
@@ -94,12 +115,13 @@ fn main() {
         program.bind();
         vao.bind();
         unsafe {
-            gl::DrawArrays(gl::TRIANGLES, 0, 3);
+            // gl::DrawArrays(gl::TRIANGLES, 0, 6);
+            gl::DrawElements(gl::TRIANGLES, 6, gl::UNSIGNED_INT, std::ptr::null());
         }
         VertexArray::clear_bind();
 
         window.swap_buffers();
 
         //::std::thread::sleep(::std::time::Duration::new(0, 1_000_000_000u32 / 60));
-    }*/
+    }
 }
