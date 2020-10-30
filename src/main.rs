@@ -6,6 +6,7 @@ mod matrix;
 mod vector;
 mod texture_2d;
 
+use std::ffi::CString;
 use shader::Shader;
 use buffer::Buffer;
 use vertex_array::VertexArray;
@@ -16,9 +17,11 @@ use texture_2d::Texture2D;
 
 extern crate sdl2;
 extern crate gl;
+extern crate renderdoc;
 
 use sdl2::event::Event;
 use sdl2::keyboard::Keycode;
+use renderdoc::{ RenderDoc, V100, V110 };
 
 const V_SHADER_SOURCE: &str = r#"
     #version 400 core
@@ -29,10 +32,14 @@ const V_SHADER_SOURCE: &str = r#"
     out vec3 vColor;
     out vec2 vUV;
 
+    uniform mat4 model;
+    uniform mat4 view;
+    uniform mat4 proj;
+
     void main() {
         vColor = aCol;
         vUV = aUV;
-        gl_Position = vec4(aPos, 1.0);
+        gl_Position = proj * view * model * vec4(aPos, 1.0);
     }
 "#;
 
@@ -51,18 +58,30 @@ const F_SHADER_SOURCE: &str = r#"
 "#;
 
 fn main() {
+    // renderdoc profiling
+    let mut rd: RenderDoc<V110> = RenderDoc::new().expect("Unable to connect to RenderDoc");
+    let (major, minor, patch) = rd.get_api_version();
+    assert_eq!(major, 1u32);
+    assert!(minor >= 1u32);
+
     let window = Window::create("New Window", 1280, 720).unwrap();
     let program = Shader::create(V_SHADER_SOURCE, F_SHADER_SOURCE);
 
     // VBO
+    /*let vertices: [f32; 32] = [
+        440.0, 180.0, 0.0,    1.0, 1.0, 1.0,    1.0, 1.0, // TL
+        840.0, 180.0, 0.0,    1.0, 1.0, 1.0,    1.0, 0.0, // TR
+        440.0, 540.0, 0.0,    1.0, 1.0, 1.0,    0.0, 0.0, // BL
+        840.0, 540.0, 0.0,    1.0, 1.0, 1.0,    0.0, 1.0, // BR
+    ];*/
     let vertices: [f32; 32] = [
-         0.5,  0.5, 0.0,    1.0, 1.0, 1.0,    1.0, 1.0,
-         0.5, -0.5, 0.0,    1.0, 1.0, 1.0,    1.0, 0.0,
-        -0.5, -0.5, 0.0,    1.0, 1.0, 1.0,    0.0, 0.0,
-        -0.5,  0.5, 0.0,    1.0, 1.0, 1.0,    0.0, 1.0,
+        -0.5,  0.5, 0.0,    1.0, 1.0, 1.0,    1.0, 1.0, // TL
+         0.5,  0.5, 0.0,    1.0, 1.0, 1.0,    1.0, 0.0, // TR
+        -0.5, -0.5, 0.0,    1.0, 1.0, 1.0,    0.0, 0.0, // BL
+         0.5, -0.5, 0.0,    1.0, 1.0, 1.0,    0.0, 1.0, // BR
     ];
     let indices: [u32; 6] = [
-        0, 1, 3,
+        0, 2, 1,
         1, 2, 3
     ];
 
@@ -92,7 +111,24 @@ fn main() {
         Err(error) => panic!("{}", error)
     };
 
-    println!("image: {}x{}", image.width, image.height);
+    // Transforms
+    let model = Mat4::identity();
+    let view = Mat4::identity();
+    // let proj = Mat4::orthographic_off_center(0.0, window.width as f32, window.height as f32, 0.0, -1.0, 1.0);
+    let proj = Mat4::translate(-0.5, 0.0, 0.0);
+
+    program.bind();
+    unsafe {
+        let model_loc = gl::GetUniformLocation(program.program_id, CString::new("model").expect("C-String Error").as_ptr());
+        gl::UniformMatrix4fv(model_loc, 1, gl::FALSE, &model.a[0] as *const f32);
+
+        let view_loc = gl::GetUniformLocation(program.program_id, CString::new("view").expect("C-String Error").as_ptr());
+        gl::UniformMatrix4fv(view_loc, 1, gl::FALSE, &view.a[0] as *const f32);
+
+        let proj_loc = gl::GetUniformLocation(program.program_id, CString::new("proj").expect("C-String Error").as_ptr());
+        gl::UniformMatrix4fv(proj_loc, 1, gl::FALSE, &proj.a[0] as *const f32);
+    }
+
 
     let mut event_pump = window.sdl_context.event_pump().unwrap();
 

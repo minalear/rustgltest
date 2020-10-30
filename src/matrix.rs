@@ -17,6 +17,16 @@ impl Mat4 {
             ]
         }
     }
+    pub fn zero() -> Mat4 {
+        Mat4 {
+            a: [
+                [0.0, 0.0, 0.0, 0.0],
+                [0.0, 0.0, 0.0, 0.0],
+                [0.0, 0.0, 0.0, 0.0],
+                [0.0, 0.0, 0.0, 0.0]
+            ]
+        }
+    }
     pub fn new(values: [[f32; 4]; 4]) -> Mat4 {
         Mat4 {
             a: values
@@ -49,6 +59,16 @@ impl Mat4 {
                 [ 1.0, 0.0, 0.0, x ],
                 [ 0.0, 1.0, 0.0, y ],
                 [ 0.0, 0.0, 1.0, z ],
+                [ 0.0, 0.0, 0.0, 1.0 ]
+            ]
+        }
+    }
+    pub fn orthographic_off_center(left: f32, right: f32, bottom: f32, top: f32, near: f32, far: f32) -> Mat4 {
+        Mat4 {
+            a: [
+                [ 2.0 / (right - left), 0.0, 0.0, -((right + left) / (right - left)) ],
+                [ 0.0, 2.0 / (top - bottom), 0.0, -((top + bottom) / (top - bottom)) ],
+                [ 0.0, 0.0, -2.0 / (far - near), -((far + near) / (far - near)) ],
                 [ 0.0, 0.0, 0.0, 1.0 ]
             ]
         }

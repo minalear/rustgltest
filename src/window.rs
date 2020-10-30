@@ -3,6 +3,8 @@ use sdl2::video::GLProfile;
 pub struct Window {
     pub sdl_context: sdl2::Sdl,
     pub sdl_window: sdl2::video::Window,
+    pub width: u32,
+    pub height: u32,
     _gl_context: sdl2::video::GLContext
 }
 
@@ -36,6 +38,8 @@ impl Window {
         Ok(Window{
             sdl_context,
             sdl_window: window,
+            width,
+            height,
             _gl_context: gl_context
         })
     }
