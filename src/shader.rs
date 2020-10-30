@@ -2,7 +2,7 @@ use std::{ ffi::CString, ptr, str };
 use gl::types::*;
 
 pub struct Shader {
-    program_id: u32
+    pub program_id: u32
 }
 
 fn check_shader_comp_status(shader: GLuint) -> bool {

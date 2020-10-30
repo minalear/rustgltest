@@ -22,12 +22,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1772f77c-aa0e-424a-a813-058f289197bd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vertex_buffer.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/buffer.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/matrix.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/matrix.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shader.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/shader.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/window.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/window.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,11 +80,6 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
   </component>
   <component name="RustProjectSettings">
     <option name="toolchainHomeDirectory" value="$USER_HOME$/.cargo/bin" />
@@ -105,7 +101,9 @@
       <workItem from="1603755350967" duration="1317000" />
       <workItem from="1603760750981" duration="2248000" />
       <workItem from="1603860401568" duration="6044000" />
-      <workItem from="1604034651462" duration="3957000" />
+      <workItem from="1604034651462" duration="4113000" />
+      <workItem from="1604077352344" duration="2644000" />
+      <workItem from="1604081151874" duration="1095000" />
     </task>
     <servers />
   </component>
@@ -122,26 +120,26 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="2005" height="302" key="GridCell.Tab.0.bottom" timestamp="1604039051048">
+    <state width="2005" height="302" key="GridCell.Tab.0.bottom" timestamp="1604082245870">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="302" key="GridCell.Tab.0.bottom/0.0.2048.1112/-2560.0.2048.1112/2560.0.2048.1112@0.0.2048.1112" timestamp="1604039051048" />
-    <state width="2005" height="302" key="GridCell.Tab.0.bottom/2560.0.2048.1112/-2560.0.2048.1112/0.0.2048.1112@0.0.2048.1112" timestamp="1603768029138" />
-    <state width="2005" height="302" key="GridCell.Tab.0.center" timestamp="1604039051048">
+    <state width="2005" height="302" key="GridCell.Tab.0.bottom/0.0.2048.1112/-2560.0.2048.1112/2560.0.2048.1112@0.0.2048.1112" timestamp="1604039249017" />
+    <state width="2005" height="302" key="GridCell.Tab.0.bottom/2560.0.2048.1112/-2560.0.2048.1112/0.0.2048.1112@0.0.2048.1112" timestamp="1604082245870" />
+    <state width="2005" height="302" key="GridCell.Tab.0.center" timestamp="1604082245870">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="302" key="GridCell.Tab.0.center/0.0.2048.1112/-2560.0.2048.1112/2560.0.2048.1112@0.0.2048.1112" timestamp="1604039051048" />
-    <state width="2005" height="302" key="GridCell.Tab.0.center/2560.0.2048.1112/-2560.0.2048.1112/0.0.2048.1112@0.0.2048.1112" timestamp="1603768029138" />
-    <state width="2005" height="302" key="GridCell.Tab.0.left" timestamp="1604039051048">
+    <state width="2005" height="302" key="GridCell.Tab.0.center/0.0.2048.1112/-2560.0.2048.1112/2560.0.2048.1112@0.0.2048.1112" timestamp="1604039249017" />
+    <state width="2005" height="302" key="GridCell.Tab.0.center/2560.0.2048.1112/-2560.0.2048.1112/0.0.2048.1112@0.0.2048.1112" timestamp="1604082245870" />
+    <state width="2005" height="302" key="GridCell.Tab.0.left" timestamp="1604082245870">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="302" key="GridCell.Tab.0.left/0.0.2048.1112/-2560.0.2048.1112/2560.0.2048.1112@0.0.2048.1112" timestamp="1604039051048" />
-    <state width="2005" height="302" key="GridCell.Tab.0.left/2560.0.2048.1112/-2560.0.2048.1112/0.0.2048.1112@0.0.2048.1112" timestamp="1603768029137" />
-    <state width="2005" height="302" key="GridCell.Tab.0.right" timestamp="1604039051048">
+    <state width="2005" height="302" key="GridCell.Tab.0.left/0.0.2048.1112/-2560.0.2048.1112/2560.0.2048.1112@0.0.2048.1112" timestamp="1604039249017" />
+    <state width="2005" height="302" key="GridCell.Tab.0.left/2560.0.2048.1112/-2560.0.2048.1112/0.0.2048.1112@0.0.2048.1112" timestamp="1604082245870" />
+    <state width="2005" height="302" key="GridCell.Tab.0.right" timestamp="1604082245870">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="302" key="GridCell.Tab.0.right/0.0.2048.1112/-2560.0.2048.1112/2560.0.2048.1112@0.0.2048.1112" timestamp="1604039051048" />
-    <state width="2005" height="302" key="GridCell.Tab.0.right/2560.0.2048.1112/-2560.0.2048.1112/0.0.2048.1112@0.0.2048.1112" timestamp="1603768029138" />
+    <state width="2005" height="302" key="GridCell.Tab.0.right/0.0.2048.1112/-2560.0.2048.1112/2560.0.2048.1112@0.0.2048.1112" timestamp="1604039249017" />
+    <state width="2005" height="302" key="GridCell.Tab.0.right/2560.0.2048.1112/-2560.0.2048.1112/0.0.2048.1112@0.0.2048.1112" timestamp="1604082245870" />
     <state width="2005" height="376" key="GridCell.Tab.1.bottom" timestamp="1603749802706">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
