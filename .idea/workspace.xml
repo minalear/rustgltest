@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated />
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="CargoProjects">
+    <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1772f77c-aa0e-424a-a813-058f289197bd" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Rust File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="mnanoahw" />
+  </component>
+  <component name="ProjectId" id="1jHz4aDII58rf6Tab83FCgd3BxC" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="cf.first.check.clang-format" value="false" />
+    <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Run" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
+      <option name="channel" value="DEFAULT" />
+      <option name="command" value="run --package gltest --bin gltest" />
+      <option name="allFeatures" value="false" />
+      <option name="emulateTerminal" value="false" />
+      <option name="backtrace" value="SHORT" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="RustProjectSettings">
+    <option name="toolchainHomeDirectory" value="$USER_HOME$/.cargo/bin" />
+    <option name="version" value="2" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1772f77c-aa0e-424a-a813-058f289197bd" name="Default Changelist" comment="" />
+      <created>1603475614731</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1603475614731</updated>
+      <workItem from="1603475616091" duration="1461000" />
+      <workItem from="1603488687840" duration="2918000" />
+      <workItem from="1603676328729" duration="4413000" />
+      <workItem from="1603692233441" duration="1428000" />
+      <workItem from="1603736362152" duration="11603000" />
+      <workItem from="1603755350967" duration="1317000" />
+      <workItem from="1603760750981" duration="2248000" />
+      <workItem from="1603860401568" duration="6044000" />
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="2005" height="302" key="GridCell.Tab.0.bottom" timestamp="1603866452554">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="2005" height="302" key="GridCell.Tab.0.bottom/0.0.2048.1112/-2560.0.2048.1112/2560.0.2048.1112@0.0.2048.1112" timestamp="1603866452554" />
+    <state width="2005" height="302" key="GridCell.Tab.0.bottom/2560.0.2048.1112/-2560.0.2048.1112/0.0.2048.1112@0.0.2048.1112" timestamp="1603768029138" />
+    <state width="2005" height="302" key="GridCell.Tab.0.center" timestamp="1603866452554">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="2005" height="302" key="GridCell.Tab.0.center/0.0.2048.1112/-2560.0.2048.1112/2560.0.2048.1112@0.0.2048.1112" timestamp="1603866452554" />
+    <state width="2005" height="302" key="GridCell.Tab.0.center/2560.0.2048.1112/-2560.0.2048.1112/0.0.2048.1112@0.0.2048.1112" timestamp="1603768029138" />
+    <state width="2005" height="302" key="GridCell.Tab.0.left" timestamp="1603866452554">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="2005" height="302" key="GridCell.Tab.0.left/0.0.2048.1112/-2560.0.2048.1112/2560.0.2048.1112@0.0.2048.1112" timestamp="1603866452554" />
+    <state width="2005" height="302" key="GridCell.Tab.0.left/2560.0.2048.1112/-2560.0.2048.1112/0.0.2048.1112@0.0.2048.1112" timestamp="1603768029137" />
+    <state width="2005" height="302" key="GridCell.Tab.0.right" timestamp="1603866452554">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="2005" height="302" key="GridCell.Tab.0.right/0.0.2048.1112/-2560.0.2048.1112/2560.0.2048.1112@0.0.2048.1112" timestamp="1603866452554" />
+    <state width="2005" height="302" key="GridCell.Tab.0.right/2560.0.2048.1112/-2560.0.2048.1112/0.0.2048.1112@0.0.2048.1112" timestamp="1603768029138" />
+    <state width="2005" height="376" key="GridCell.Tab.1.bottom" timestamp="1603749802706">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="1118" height="374" key="GridCell.Tab.1.bottom/0.0.2048.1112/-2560.0.2048.1112/2560.0.2048.1112@0.0.2048.1112" timestamp="1603693662331" />
+    <state width="2005" height="376" key="GridCell.Tab.1.bottom/2560.0.2048.1112/-2560.0.2048.1112/0.0.2048.1112@0.0.2048.1112" timestamp="1603749802706" />
+    <state width="2005" height="376" key="GridCell.Tab.1.center" timestamp="1603749802706">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="1118" height="374" key="GridCell.Tab.1.center/0.0.2048.1112/-2560.0.2048.1112/2560.0.2048.1112@0.0.2048.1112" timestamp="1603693662331" />
+    <state width="2005" height="376" key="GridCell.Tab.1.center/2560.0.2048.1112/-2560.0.2048.1112/0.0.2048.1112@0.0.2048.1112" timestamp="1603749802706" />
+    <state width="2005" height="376" key="GridCell.Tab.1.left" timestamp="1603749802706">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="1118" height="374" key="GridCell.Tab.1.left/0.0.2048.1112/-2560.0.2048.1112/2560.0.2048.1112@0.0.2048.1112" timestamp="1603693662331" />
+    <state width="2005" height="376" key="GridCell.Tab.1.left/2560.0.2048.1112/-2560.0.2048.1112/0.0.2048.1112@0.0.2048.1112" timestamp="1603749802706" />
+    <state width="2005" height="376" key="GridCell.Tab.1.right" timestamp="1603749802706">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="1118" height="374" key="GridCell.Tab.1.right/0.0.2048.1112/-2560.0.2048.1112/2560.0.2048.1112@0.0.2048.1112" timestamp="1603693662331" />
+    <state width="2005" height="376" key="GridCell.Tab.1.right/2560.0.2048.1112/-2560.0.2048.1112/0.0.2048.1112@0.0.2048.1112" timestamp="1603749802706" />
+    <state x="1130" y="248" width="672" height="678" key="search.everywhere.popup" timestamp="1603680491868">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="1130" y="248" width="672" height="678" key="search.everywhere.popup/0.0.2048.1112/-2560.0.2048.1112/2560.0.2048.1112@0.0.2048.1112" timestamp="1603680491868" />
+  </component>
+</project>
